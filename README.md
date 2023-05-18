@@ -10,6 +10,52 @@ authorName: 'Serverless, inc.'
 authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
 -->
 
+# endpoints:
+```
+  POST - https://6bczovia69.execute-api.ap-south-1.amazonaws.com/dev/register
+  POST - https://6bczovia69.execute-api.ap-south-1.amazonaws.com/dev/login
+  POST - https://6bczovia69.execute-api.ap-south-1.amazonaws.com/dev/note    (authorized)
+  GET - https://6bczovia69.execute-api.ap-south-1.amazonaws.com/dev/note     (authorized)
+```
+
+```
+authorized endpoints set headers Authorization to {Token} which you will get after successfully login
+```
+# SIGN UP BODY
+```
+{
+    "name":"user9",
+    "email":"user9@gmail.com",
+    "password":"user9@1234"
+}
+```
+
+# SIGN IN BODY
+```
+{
+    "email":"user9@gmail.com",
+    "password":"user9@1234"
+}
+```
+
+# CREATE NOTE BODY AND HEADER
+```
+{
+    "name":"user9 todo2",
+    "description": "Greate todos"
+}
+
+Authorization : {token}
+```
+
+# GET NOTE HEADER
+```
+Authorization : {token}
+```
+
+
+
+
 # Serverless Framework Node HTTP API on AWS
 
 This template demonstrates how to make a simple HTTP API with Node.js running on AWS Lambda and API Gateway using the Serverless Framework.
