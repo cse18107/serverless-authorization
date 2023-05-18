@@ -9,8 +9,12 @@ authorLink: 'https://github.com/serverless'
 authorName: 'Serverless, inc.'
 authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
 -->
+ # Features
 ```
- 1. Sign up - 
+ 1. Sign up : User can sign up using there name, email and password
+ 2. Sign in : User can sign in using there email and password and user will get a token in return
+ 3. Create note : User can create note for himself after successfully logged in
+ 4. Get note : User will get his own list of notes after successfully logged in 
 ```
 # endpoints:
 ```
