@@ -1,0 +1,44 @@
+service: serverless-auth
+frameworkVersion: '3'
+
+# plugins:
+#   - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-south-1
+  stage: ${opt:stage, 'dev'}
+  timeout: 300
+
+functions:
+  authorizerFunc:
+    handler: authorizer.handler
+
+  createUser:
+    handler: src/handlers/createUser.handler
+    events:
+      - http:
+          path: /register
+          method: post
+  loginUser:
+    handler: src/handlers/loginUser.handler
+    events:
+      - http:
+          path: /login
+          method: post
+  createNote:
+    handler: src/handlers/note.createNote
+    events:
+      - http:
+          path: /note
+          method: post
+          authorizer: authorizerFunc
+  getNotes:
+    handler: src/handlers/note.getNotes
+    events:
+      - http:
+          path: /note
+          method: get
+          authorizer: authorizerFunc
+
